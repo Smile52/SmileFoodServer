@@ -29,6 +29,7 @@ public class FoodQueryServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		FoodDao dao = new FoodDaoImpl(conn);
+		
 		foodlist = dao.queryFood();
 		Gson gson=new Gson();
 	/*	for(Food s:foodlist){
@@ -52,11 +53,14 @@ public class FoodQueryServlet extends HttpServlet {
 		
 		
 		FoodDao dao = new FoodDaoImpl(conn);
-		foodlist = dao.queryFood();		
-		request.setAttribute("objlist", foodlist);
+		request.setAttribute("FoodName", "FoodName");
+		//request.setAttribute("description", "");
+		foodlist = dao.queryFood();	
+		request.getSession().setAttribute("objlist", foodlist);
+		//request.setAttribute("objlist", foodlist);
+		//response.sendRedirect("/SmileFoodServer/Food/Food.jsp");
 		request.getRequestDispatcher("/Food/Food.jsp").forward(request,
-				response);
-
+			response);
 		out.flush();
 		out.close();
 	}

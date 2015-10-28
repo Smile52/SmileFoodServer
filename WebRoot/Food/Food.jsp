@@ -1,17 +1,18 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" %>
-
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page isELIgnored="false" %> 
+<%@page import="com.Smile.Bean.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
     <title>My JSP 'Food.jsp' starting page</title>
-    
+   
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -20,12 +21,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
-  </head>
-  
+  </head> 
   <body>
     <h2 align="center">菜单管理</h2> 
     <a href="http://localhost:8080/SmileFoodServer/Food/AddFood.jsp">添加菜</a> &nbsp;&nbsp;&nbsp; <a href="http://localhost:8080/SmileFoodServer/Food/DeleteFood.jsp">删除菜</a>
+     <%List<Food> list=(List<Food>)session.getAttribute("objlist"); %>
+     <h3>session<%out.println(session.getAttribute("objlist")); %></h3>
+     <h2><%out.println(request.getAttribute("FoodName")); %></h2>
+     <h3>list<%out.println(list); %></h3>
     <div>
     	<table width="80%" border="1">
     	<tbody>
@@ -37,14 +40,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<th>图片链接</th>
     			<th width="20%">预定数量</th>
     		</tr>
+    		
     		<c:forEach items="${objlist}" var="food" >
     			<tr >
-    				<td>${obj[0]} </td>
-    				<td>${obj[1]}</td>
-    				<td>${obj[2]}</td>
-    				<td>${obj[3]}</td>
-    				<td>${obj[4]}</td>
-    				<td>${obj[5]}</td>
+    				<td>${food.getFoodId()}</td>
+    				<td>${food.getFoodName()}</td>
+    				<td>${food.getFoodPrice()}</td>
+    				<td>${food.getFoodDetial()}</td>
+    				<td>${food.getFoodUrl()}</td>
+    				<td>${food.getFoodCount()}</td>
+    				  				
     			</tr>
     		</c:forEach>
     	</tbody>

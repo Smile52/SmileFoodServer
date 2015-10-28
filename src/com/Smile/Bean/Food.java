@@ -6,7 +6,7 @@ package com.Smile.Bean;
  */
 public class Food {
 	private int FoodId;
-	private String FoodName;
+	public String FoodName;
 	private Float FoodPrice;
 	private String FoodDetial;
 	private String FoodUrl;

@@ -15,7 +15,7 @@ public class Test {
 		List<Food> foodlist=new ArrayList<Food>();
 		Connection conn=ConnCreate.getConnection("jdbc:mysql://localhost:3306/smilefood", "root", "8080");
 		FoodDao dao=new FoodDaoImpl(conn);
-		 //foodlist=dao.queryFood();
+		 foodlist=dao.queryFood();
 		 for(Food food:foodlist){
 			 System.out.println(food.toString());
 		 }

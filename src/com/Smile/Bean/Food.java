@@ -4,26 +4,21 @@ package com.Smile.Bean;
  * @author ¾ÅÁú
  *
  */
-/**
- * @author ¾ÅÁú
- *
- */
 public class Food {
-	private int Foodid;
+	private int FoodId;
 	public String FoodName;
 	private Float FoodPrice;
 	private String FoodDetial;
 	private String FoodUrl;
 	private int FoodCount;
-	private int FoodType;
 	public Food(){
 		
 	};
 	public int getFoodId() {
-		return Foodid;
+		return FoodId;
 	}
 	public void setFoodId(int foodId) {
-		Foodid = foodId;
+		FoodId = foodId;
 	}
 	public String getFoodName() {
 		return FoodName;
@@ -56,21 +51,12 @@ public class Food {
 	public void setFoodCount(int foodCount) {
 		FoodCount = foodCount;
 	}
-	public int getFoodType() {
-		return FoodType;
-	}
-	public void setFoodType(int foodType) {
-		FoodType = foodType;
-	}
 	@Override
 	public String toString() {
-		return "Food [Foodid=" + Foodid + ", FoodName=" + FoodName
+		return "Food [FoodId=" + FoodId + ", FoodName=" + FoodName
 				+ ", FoodPrice=" + FoodPrice + ", FoodDetial=" + FoodDetial
-				+ ", FoodUrl=" + FoodUrl + ", FoodCount=" + FoodCount
-				+ ", FoodType=" + FoodType + "]";
+				+ ", FoodUrl=" + FoodUrl + ", FoodCount=" + FoodCount + "]";
 	}
-
-	
 	
 	
 }

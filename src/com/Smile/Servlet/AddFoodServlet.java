@@ -68,8 +68,7 @@ public class AddFoodServlet extends HttpServlet {
 	 * @param response
 	 */
 	private Food uploadImg(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
-		String url="/SmileFoodServer/FoodImgs/{0}";
+		String url="http://localhost:8080/SmileFoodServer/FoodImgs/{0}";
 		String imgUrl = null;
 		DiskFileItemFactory factory=new DiskFileItemFactory();
 		//通过工厂生成一个处理文件上传的ServletFileUpload对象
@@ -93,14 +92,19 @@ public class AddFoodServlet extends HttpServlet {
 					case "fooddetail":
 						nfood.setFoodDetial(item.getString("UTF-8"));
 						break;
-					case "foodtype":
-						nfood.setFoodType(Integer.parseInt(item.getString("UTF-8")));
+					
 					default:
 						break;
 					}
 					
 				}else{
-					if(item.getName()!=null&&!item.getName().equals("")){						                              
+					if(item.getName()!=null&&!item.getName().equals("")){
+						//一个上传的文件
+                       /* System.out.println("文件的名称："+item.getName());
+                        System.out.println("文件的大小："+item.getSize());
+                        System.out.println("文件的类型："+item.getContentType());*/
+                        
+                        
                         File tempFile=new File(item.getName());
                         File file=new File(sc.getRealPath("/")+savaPath,tempFile.getName());
                         item.write(file);

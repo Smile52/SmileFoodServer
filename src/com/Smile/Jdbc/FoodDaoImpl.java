@@ -22,13 +22,14 @@ public class FoodDaoImpl implements FoodDao {
 	public int addFood(Food food) {
 		PreparedStatement stmt=null;
 		int result=0;
-			String sql="insert into food_tb(foodname,foodprice,fooddetail,foodimagurl) values(?,?,?,?)";
+			String sql="insert into food_tb(foodname,foodprice,fooddetail,foodimagurl,food_type) values(?,?,?,?,?)";
 			try {
 				stmt=conn.prepareStatement(sql);
 				stmt.setString(1, food.getFoodName());
 				stmt.setFloat(2, food.getFoodPrice());
 				stmt.setString(3, food.getFoodDetial());
 				stmt.setString(4, food.getFoodUrl());
+				stmt.setInt(5, food.getFoodType());
 				result=stmt.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -50,7 +51,7 @@ public class FoodDaoImpl implements FoodDao {
 	 * ≤È—Ø≤À
 	 */
 	@Override
-	public List<Food> queryFood() {
+	public List<Food> queryFood(String ip) {
 		List<Food> foodlist=new ArrayList<Food>();
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
@@ -62,11 +63,13 @@ public class FoodDaoImpl implements FoodDao {
 			while(rs.next()){
 				Food f=new Food();
 				f.setFoodId(rs.getInt(1));
+				
 				f.setFoodName(rs.getString(2));
 				f.setFoodPrice(rs.getFloat(3));
 				f.setFoodDetial(rs.getString(4));
-				f.setFoodUrl(rs.getString(5));
+				f.setFoodUrl(ip+rs.getString(5));
 				f.setFoodCount(rs.getInt(6));
+				f.setFoodType(rs.getInt(7));
 				foodlist.add(f);
 			}
 		} catch (SQLException e) {

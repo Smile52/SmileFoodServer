@@ -30,6 +30,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <li>价格：<input type="text" name="foodprice"></li>
     <li>描述：<input  type="text" name="fooddetail"></li>
     <li>图片：<input type="file" name="foodimg" ></li>
+    <li>类型：<select name="foodtype">
+    	<option value="1">中式菜</option>
+    	<option value="2">西式菜</option>
+    	<option value="3">点心</option>
+    	<option value="4">汤类</option>
+    	<option value="5">火锅</option>
+    	<option value="6">酒水</option>
+    </select></li>
     <input type="submit" value="提交">
     </form>
     </div>

@@ -25,10 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <h2 align="center">菜单管理</h2> 
     <a href="http://localhost:8080/SmileFoodServer/Food/AddFood.jsp">添加菜</a> &nbsp;&nbsp;&nbsp; <a href="http://localhost:8080/SmileFoodServer/Food/DeleteFood.jsp">删除菜</a>
-     <%List<Food> list=(List<Food>)session.getAttribute("objlist"); %>
-     <h3>session<%out.println(session.getAttribute("objlist")); %></h3>
-     <h2><%out.println(request.getAttribute("FoodName")); %></h2>
-     <h3>list<%out.println(list); %></h3>
+     
     <div>
     	<table width="80%" border="1">
     	<tbody>
@@ -39,6 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<th>描述</th>
     			<th>图片链接</th>
     			<th width="20%">预定数量</th>
+    			<th>类型</th>
     		</tr>
     		
     		<c:forEach items="${objlist}" var="food" >
@@ -49,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     				<td>${food.getFoodDetial()}</td>
     				<td>${food.getFoodUrl()}</td>
     				<td>${food.getFoodCount()}</td>
-    				  				
+    				<td>${food.getFoodType()}</td>				
     			</tr>
     		</c:forEach>
     	</tbody>

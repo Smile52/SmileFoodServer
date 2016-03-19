@@ -25,14 +25,14 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	@Override
-	public Admin queryAdmin(String AdminName) {
+	public Admin queryAdmin(String adminName) {
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		Admin admin=null;
 		String sql="SELECT * FROM admin_tb where adminname= ?";		
 		try {
 			stmt=conn.prepareStatement(sql);
-			stmt.setString(1, AdminName);		
+			stmt.setString(1, adminName);		
 			rs=stmt.executeQuery();
 			if(rs.next()){
 				admin=new Admin();

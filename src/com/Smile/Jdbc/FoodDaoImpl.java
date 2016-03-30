@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.Smile.Bean.Food;
+import com.Smile.Bean.FoodId;
 
 public class FoodDaoImpl implements FoodDao {
 	private Connection conn=null;
@@ -113,10 +114,29 @@ public class FoodDaoImpl implements FoodDao {
 	}
 
 	@Override
-	public int updateFood(int id, Food food) {
-		
-		
-		return id;
+	public int updateFood(List<FoodId> foodIds) {
+		int result =0;
+		PreparedStatement stmt=null;
+		for(FoodId ids:foodIds){
+			int id=ids.getFoodId();
+		String sql="update food_tb set foodcount=(foodcount+1) where foodid=?";
+		try {
+			stmt=conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			result=stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				ConnCreate.close(null, stmt, null);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		}
+		return result;
 		// TODO Auto-generated method stub
 
 	}

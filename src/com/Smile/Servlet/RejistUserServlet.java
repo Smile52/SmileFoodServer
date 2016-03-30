@@ -57,7 +57,7 @@ public class RejistUserServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		Connection conn = ConnCreate.getConnection(
-				"jdbc:mysql://localhost:3306/smilefood", "root", "8080");// 获取数据库连接
+				"jdbc:mysql://localhost:3306/smilefood", "root", "1234");// 获取数据库连接
 		UserInfoDao dao = new UserInfoDaoImpl(conn);
 		UserInfo user=new UserInfo();
 		user.setUserName(request.getParameter("newname"));
@@ -67,6 +67,11 @@ public class RejistUserServlet extends HttpServlet {
 		System.out.println("6666"+request.getParameter("newnum"));
 		System.out.println("777"+request.getParameter("newpwd"));
 		int i=dao.AddUser(user);
+		if(i==1){
+			out.println("Success");
+		}else{
+			out.println("Failed");
+		}
 		out.flush();
 		out.close();
 	}

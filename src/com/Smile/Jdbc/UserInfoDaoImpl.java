@@ -25,8 +25,9 @@ public class UserInfoDaoImpl implements UserInfoDao {
 			stmt.setString(3, userInfo.getUserPhone().toString());
 			stmt.setString(4, userInfo.getUserName().toString());
 			result=stmt.executeUpdate();
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}finally{
 			try {
@@ -36,6 +37,7 @@ public class UserInfoDaoImpl implements UserInfoDao {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("result"+result);
 		return result;
 	}
 	/**

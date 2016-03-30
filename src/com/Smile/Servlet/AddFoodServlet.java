@@ -48,7 +48,7 @@ public class AddFoodServlet extends HttpServlet {
 		
 		newfood=uploadImg(request,response);
 		Connection conn = ConnCreate.getConnection(
-				"jdbc:mysql://localhost:3306/smilefood", "root", "8080");
+				"jdbc:mysql://localhost:3306/smilefood", "root", "1234");
 		FoodDao dao=new FoodDaoImpl(conn);
 		//System.out.println("555"+newfood.getFoodName());
 	

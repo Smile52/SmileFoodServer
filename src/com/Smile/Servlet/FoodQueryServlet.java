@@ -22,11 +22,11 @@ public class FoodQueryServlet extends HttpServlet {
     private	List<Food> foodlist = new ArrayList<Food>();
     //final String IP="http://192.168.191.1:8080";
     private	Connection conn = ConnCreate.getConnection(
-			"jdbc:mysql://localhost:3306/smilefood", "root", "8080");
+			"jdbc:mysql://localhost:3306/smilefood", "root", "1234");
 	//Éú³ÉJson
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

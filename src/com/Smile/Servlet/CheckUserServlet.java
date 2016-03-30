@@ -61,7 +61,7 @@ public class CheckUserServlet extends HttpServlet {
 
 	public Boolean checkUserNum(String userNum, String userPwd) {
 		Connection conn = ConnCreate.getConnection(
-				"jdbc:mysql://localhost:3306/smilefood", "root", "8080");// 获取数据库连接
+				"jdbc:mysql://localhost:3306/smilefood", "root", "1234");// 获取数据库连接
 		UserInfoDao dao = new UserInfoDaoImpl(conn);
 		UserInfo user = dao.QueryUser(userNum);
 		//System.out.println("查询出来的"+user.getUserPwd());

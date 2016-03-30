@@ -35,7 +35,7 @@ public class DeleteFoodServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String foodId=request.getParameter("foodId");
 		Connection conn = ConnCreate.getConnection(
-				"jdbc:mysql://localhost:3306/smilefood", "root", "8080");
+				"jdbc:mysql://localhost:3306/smilefood", "root", "1234");
 		FoodDao dao=new FoodDaoImpl(conn);
 		int result=dao.deleteFood(Integer.parseInt(foodId));
 		if(result==0){

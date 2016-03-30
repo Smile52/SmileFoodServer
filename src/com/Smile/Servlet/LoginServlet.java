@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Connection conn = ConnCreate.getConnection(
-				"jdbc:mysql://localhost:3306/smilefood", "root", "8080");// 获取数据库连接
+				"jdbc:mysql://localhost:3306/smilefood", "root", "1234");// 获取数据库连接
 		checkAdmin(request,response);
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
 		userBean.setAdminUserPwd(request.getParameter("password"));
 
 		Connection conn = ConnCreate.getConnection(
-				"jdbc:mysql://localhost:3306/smilefood", "root", "8080");// 获取数据库连接
+				"jdbc:mysql://localhost:3306/smilefood", "root", "1234");// 获取数据库连接
 		AdminDao dao = new AdminDaoImpl(conn);
 		Admin admin = dao.queryAdmin(AdminName);
 		String forwad = null;// 请求转发
@@ -88,8 +88,6 @@ public class LoginServlet extends HttpServlet {
 					+ "/UserLogin/error.jsp");// 验证失败采用请求重定向跳转到错误页面
 
 		}
-
-		//System.out.println(userBean.toString());
 
 	}
 

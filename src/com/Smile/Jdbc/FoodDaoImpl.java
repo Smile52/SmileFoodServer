@@ -43,9 +43,7 @@ public class FoodDaoImpl implements FoodDao {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
-			
-		
+			}		
 		return result;
 	}
 	/**
@@ -110,7 +108,6 @@ public class FoodDaoImpl implements FoodDao {
 			}
 		}
 		return result;
-
 	}
 
 	@Override
